@@ -22,7 +22,7 @@ router.post('/api/getDataWithAdress', async (request, response) => {
     fields.city,
     fields.consumedWattsPerMonth
   );
-  response.send(JSON.stringify(responseData));
+  response.json(responseData);
 });
 
 router.post('/api/getDataWithCoordinates', async (request, response) => {
@@ -33,7 +33,7 @@ router.post('/api/getDataWithCoordinates', async (request, response) => {
     fields.latitude,
     fields.consumedWattsPerMonth
   );
-  response.send(JSON.stringify(responseData));
+  response.json(responseData);
 });
 
 exports.router = router;

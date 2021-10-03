@@ -66,3 +66,23 @@ The response is the same for both routes. Response example:
 
 ### OBS
 The 'valueToSaveInReal' is calculated using the average price of kWh in Brazil, about R$ 0.80.
+
+## Download and Run
+
+### 1º Step - Download
+To download directly from GitHub, run the following command:
+```
+git clone https://github.com/lucasrguerra/sunergy-backend.git
+```
+
+### 2º Step - Install dependecies
+This project uses some packages, to install them, use the command:
+```
+npm install
+```
+
+### 3º Step - Run project
+Finally, to start the project, use the command:
+```
+npm start
+```
