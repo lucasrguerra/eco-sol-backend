@@ -1,40 +1,21 @@
 'use strict';
 
+class Solar_Panel {
+  constructor(panelPower, MedianOfIrradiationInRegion, requiredWattsPerMonth) {
+    this.wattsPerHour = panelPower * 0.8;
+    this.wattsPerDay = parseInt(this.wattsPerHour * MedianOfIrradiationInRegion);
+    this.wattsPerMonth = parseInt(this.wattsPerDay * 30);
+    this.numberOfPanelsNeeded = parseInt(requiredWattsPerMonth / this.wattsPerMonth) + 1;
+  };
+};
+
 exports.calculateInfosOfSolarPanels = function(MedianOfIrradiationInRegion, requiredWattsPerMonth) {
   const energyConversionRate = 0.80;
-  const panel1PowerInWattPerHour = 310;
-  const panel2PowerInWattPerHour = 340;
-  const panel3PowerInWattPerHour = 400;
+  const panel_1 = new Solar_Panel(310, MedianOfIrradiationInRegion, requiredWattsPerMonth);
+  const panel_2 = new Solar_Panel(340, MedianOfIrradiationInRegion, requiredWattsPerMonth);
+  const panel_3 = new Solar_Panel(400, MedianOfIrradiationInRegion, requiredWattsPerMonth);
 
-  let wattsPerDayPanel_1 = parseInt(panel1PowerInWattPerHour * MedianOfIrradiationInRegion * energyConversionRate);
-  let wattsPerDayPanel_2 = parseInt(panel2PowerInWattPerHour * MedianOfIrradiationInRegion * energyConversionRate);
-  let wattsPerDayPanel_3 = parseInt(panel3PowerInWattPerHour * MedianOfIrradiationInRegion * energyConversionRate);
-
-  let wattsPerMonthPanel_1 = parseInt(wattsPerDayPanel_1 * 30);
-  let wattsPerMonthPanel_2 = parseInt(wattsPerDayPanel_2 * 30);
-  let wattsPerMonthPanel_3 = parseInt(wattsPerDayPanel_3 * 30);
-
-  let numberOfPanels_1 = parseInt(requiredWattsPerMonth / wattsPerMonthPanel_1);
-  let numberOfPanels_2 = parseInt(requiredWattsPerMonth / wattsPerMonthPanel_2);
-  let numberOfPanels_3 = parseInt(requiredWattsPerMonth / wattsPerMonthPanel_3);
-
-  const panels = {
-    panel_1: {
-      wattsPerDay: wattsPerDayPanel_1,
-      wattsPerMonth: wattsPerMonthPanel_1,
-      numberOfPanels: numberOfPanels_1
-    },
-    panel_2: {
-      wattsPerDay: wattsPerDayPanel_2,
-      wattsPerMonth: wattsPerMonthPanel_2,
-      numberOfPanels: numberOfPanels_2
-    },
-    panel_3: {
-      wattsPerDay: wattsPerDayPanel_3,
-      wattsPerMonth: wattsPerMonthPanel_3,
-      numberOfPanels: numberOfPanels_3
-    }
-  };
+  const panels = { panel_1, panel_2, panel_3 };
 
   return panels;
 };
