@@ -1,10 +1,10 @@
 {
   "name": "sunergy-backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is the back-end of the Sunergy application, a project developed by the Sun Wars team of Nasa Space Apps Challenge Recife as part of the solution for the 'You are my sunshine' challenge.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
