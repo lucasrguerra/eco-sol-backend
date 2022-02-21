@@ -4,11 +4,11 @@ require('dotenv').config();
 const axios = require('axios');
 
 function normalizeString(string) {
-  return string.normalize('NFD').replace(/[\u0300-\u036f]/g, "")
+  return string.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
 };
 
 exports.getCoordinatesOfAdress = async function(street, number, district, city) {
-  let locationParameter = `${nomalizeString(street)}, ${number}, ${nomalizeString(district)}, ${nomalizeString(city), brazil}`;
+  let locationParameter = `${normalizeString(street)}, ${number}, ${normalizeString(district)}, ${normalizeString(city)}, brazil`;
   for (let index = 0; index < 15; index++) {
     locationParameter =  locationParameter.replace(' ', '+');
     locationParameter =  locationParameter.replace(',', '%2C');
